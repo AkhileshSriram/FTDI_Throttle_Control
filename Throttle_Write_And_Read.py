@@ -25,7 +25,7 @@ def set_and_read_throttle(com_port, throttle_value, duration, interval=0.5):
             
             if len(response) == 3:
                 # Assuming the first byte is not part of the throttle value
-                throttle_response = (response[1] << 8) + response[2]
+                throttle_response = (response[0] << 8) + response[1]
                 print(f"Throttle read value: {throttle_response}")
             else:
                 print("Invalid response length or communication error")
